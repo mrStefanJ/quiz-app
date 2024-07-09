@@ -72,7 +72,7 @@ const quizData = {
       options: [
         'string "10"',
         "array of 10 empty strings",
-        'string ",,,,,,,,,,"',
+        '",,,,,,,,,,"',
         "Error",
       ],
       answer: '",,,,,,,,,,"',
@@ -280,6 +280,7 @@ function showResult() {
     <h1>Test Completed!</h1>
     <p>Your score: ${score}/${selectedQuizData.length}</p>
     <ul id="user-answers"></ul>
+    <button id="try-again">Try Again</button>
   `;
   const userAnswersElement = document.getElementById("user-answers");
   selectedQuizData.forEach((question, index) => {
@@ -296,6 +297,20 @@ function showResult() {
     `;
     userAnswersElement.appendChild(listItem);
   });
+
+  document.getElementById("try-again").addEventListener("click", resetQuiz);
+}
+
+function resetQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  userAnswers = [];
+  selectedDifficulty = "";
+  selectedQuizData = [];
+  timeLeft = 60;
+
+  difficultySelection.style.display = "block";
+  testElement.style.display = "none";
 }
 
 function startTimer() {
