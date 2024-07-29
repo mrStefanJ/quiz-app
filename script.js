@@ -289,7 +289,7 @@ function selectAnswer(e) {
 
 function showResult() {
   clearInterval(timer);
-  testElement.innerHTML = `<h1>Test Completed!</h1> <p>Your score: ${score}/${selectedQuizData.length}</p> <div class="answers"><ul id="user-answers"></ul></div> <button id="reset">Reset</button>`;
+  testElement.innerHTML = `<h1>Test for <span class="selected-level">${selectedDifficulty}</span> level is completed!</h1> <p>Your score: ${score}/${selectedQuizData.length}</p> <div class="answers"><ul id="user-answers"></ul></div> <button id="reset">Reset</button>`;
   const userAnswersElement = document.getElementById("user-answers");
   selectedQuizData.forEach((question, index) => {
     const isCorrect = userAnswers[index] === question.answer;

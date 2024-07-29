@@ -25,7 +25,7 @@ body {
   margin-top: 20px;
   padding: 10px;
   border-radius: 30px;
-  border: 1px solid grey;
+  border: 1px solid #808080;
 }
 
 #start-test:hover {
@@ -39,7 +39,7 @@ body {
   margin-top: 20px;
   padding: 10px;
   border-radius: 30px;
-  border: 1px solid grey;
+  border: 1px solid #808080;
 }
 
 #reset:hover {
@@ -103,7 +103,7 @@ ul {
 
 .answers {
   background: #f9f9f9;
-  border: 1px solid black;
+  border: 1px solid #000000;
   overflow-y: overlay;
   height: 500px;
 }
@@ -124,4 +124,8 @@ ul {
 
 .comment {
   margin-top: 10px;
+}
+
+.selected-level {
+  text-transform: uppercase;
 }
