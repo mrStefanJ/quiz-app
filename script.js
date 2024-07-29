@@ -216,10 +216,12 @@ const quizData = {
 
 const difficultySelection = document.getElementById("difficulty-selection");
 const testElement = document.getElementById("test");
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
-const codeElement = document.getElementById("code");
 const timerElement = document.getElementById("time-left");
+const resetButton = document.getElementById("reset");
+
+let questionElement;
+let optionsElement;
+let codeElement;
 
 let currentQuestion = 0;
 let score = 0;
@@ -227,21 +229,32 @@ let userAnswers = [];
 let selectedDifficulty = "";
 let selectedQuizData = [];
 let timer;
-let timeLeft = 60;
+let timeLeft = 10;
 
 document.getElementById("start-test").addEventListener("click", startQuiz);
+resetButton.addEventListener("click", resetQuiz);
 
 function startQuiz() {
-  selectedDifficulty = document.getElementById("difficulty").value;
+  selectedDifficulty = document.getElementById("level").value;
   selectedQuizData = quizData[selectedDifficulty];
+  currentQuestion = 0;
+  score = 0;
+  userAnswers = [];
+  timeLeft = 10;
+
   difficultySelection.style.display = "none";
   testElement.style.display = "block";
+  resetButton.style.display = "none";
   showQuestion();
 }
 
 function showQuestion() {
   resetTimer();
   const question = selectedQuizData[currentQuestion];
+  questionElement = document.getElementById("question");
+  optionsElement = document.getElementById("options");
+  codeElement = document.getElementById("code");
+
   questionElement.innerText = question.question;
   codeElement.innerHTML = question.code;
   optionsElement.innerHTML = "";
@@ -251,7 +264,7 @@ function showQuestion() {
     optionsElement.appendChild(button);
     button.addEventListener("click", selectAnswer);
   });
-  startTimer();
+  startTimer(); // Start the timer for each new question
 }
 
 function selectAnswer(e) {
@@ -276,49 +289,31 @@ function selectAnswer(e) {
 
 function showResult() {
   clearInterval(timer);
-  testElement.innerHTML = `
-    <h1>Test Completed!</h1>
-    <p>Your score: ${score}/${selectedQuizData.length}</p>
-    <ul id="user-answers"></ul>
-    <button id="try-again">Try Again</button>
-  `;
+  testElement.innerHTML = `<h1>Test Completed!</h1> <p>Your score: ${score}/${selectedQuizData.length}</p> <div class="answers"><ul id="user-answers"></ul></div> <button id="reset">Reset</button>`;
   const userAnswersElement = document.getElementById("user-answers");
   selectedQuizData.forEach((question, index) => {
     const isCorrect = userAnswers[index] === question.answer;
     const listItem = document.createElement("li");
-    listItem.innerHTML = `
-      <p><strong>Question:</strong> ${question.question}</p>
-      <p>${question.code}</p>
-      <p><strong>Your Answer:</strong> <span class="answer ${
-        isCorrect ? "correct" : "incorrect"
-      }">${userAnswers[index]}</span></p>
-      <p><strong>Correct Answer:</strong> ${question.answer}</p>
-      <p>________________________________________________________</p>
-    `;
+    listItem.innerHTML = `<p><strong>Question:</strong> ${
+      question.question
+    }</p> <p>${
+      question.code
+    }</p> <p><strong>Your Answer:</strong> <span class="answer ${
+      isCorrect ? "correct" : "incorrect"
+    }">${userAnswers[index]}</span></p> <p><strong>Correct Answer:</strong> ${
+      question.answer
+    }</p> <p>________________________________________________________</p>`;
     userAnswersElement.appendChild(listItem);
   });
 
-  document.getElementById("try-again").addEventListener("click", resetQuiz);
-}
-
-function resetQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  userAnswers = [];
-  selectedDifficulty = "";
-  selectedQuizData = [];
-  timeLeft = 60;
-
-  difficultySelection.style.display = "block";
-  testElement.style.display = "none";
+  document.getElementById("reset").addEventListener("click", resetQuiz);
 }
 
 function startTimer() {
-  timeLeft = 60;
-  timerElement.innerText = timeLeft;
+  clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
-    timerElement.innerText = timeLeft;
+    document.getElementById("time-left").innerText = timeLeft; // Ensure timerElement is updated here
     if (timeLeft <= 0) {
       clearInterval(timer);
       selectAnswer({ target: { innerText: "No Answer" } });
@@ -328,5 +323,23 @@ function startTimer() {
 
 function resetTimer() {
   clearInterval(timer);
-  timerElement.innerText = 60;
+  timeLeft = 10;
+  document.getElementById("time-left").innerText = timeLeft; // Ensure timerElement is updated here
+}
+
+function resetQuiz() {
+  difficultySelection.style.display = "block";
+  testElement.style.display = "none";
+  resetButton.style.display = "none";
+  testElement.innerHTML = `<div id="timer">Time Left: <span id="time-left">10</span>s</div> <div class="question-container" id="question-container"> <div class="question" id="question-1"> <div class="question-text" id="question"></div> <div class="code" id="code"></div> <div class="options" id="options"></div> </div> </div>`;
+
+  // Reinitialize elements
+  questionElement = document.getElementById("question");
+  optionsElement = document.getElementById("options");
+  codeElement = document.getElementById("code");
+  timerElement = document.getElementById("time-left");
+
+  // Reinitialize event listeners
+  document.getElementById("start-test").addEventListener("click", startQuiz);
+  document.getElementById("reset").addEventListener("click", resetQuiz);
 }

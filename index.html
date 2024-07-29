@@ -7,19 +7,21 @@
     <title>JavaScript Test</title>
   </head>
   <body>
-    <h1 class="title">Welcome to JavaScript Test</h1>
     <div id="difficulty-selection">
-      <label for="difficulty">Select Difficulty:</label>
-      <select id="difficulty">
+      <h1 class="title">Welcome to JavaScript Test</h1>
+      <label for="difficulty-label">Select Difficulty:</label>
+      <select id="level">
         <option value="junior">Junior</option>
         <option value="medium">Medium</option>
         <option value="senior">Senior</option>
       </select>
-      <button id="start-test">Start Start</button>
-      <div>You will have 10 questions for each Level</div>
+      <div class="btn-start">
+      <button id="start-test">Start Test</button>
+    </div>
+      <div class="comment">You will have 10 questions for each Level</div>
     </div>
     <div id="test" style="display: none">
-      <div id="timer">Time Left: <span id="time-left">60</span>s</div>
+      <div id="timer">Time Left: <span id="time-left">10</span>s</div>
       <div class="question-container" id="question-container">
         <div class="question" id="question-1">
           <div class="question-text" id="question"></div>
@@ -28,6 +30,7 @@
         </div>
       </div>
     </div>
+    <button id="reset" style="display: none;">Reset</button>
     <script src="./script.js"></script>
   </body>
 </html>
