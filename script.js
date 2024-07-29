@@ -229,7 +229,7 @@ let userAnswers = [];
 let selectedDifficulty = "";
 let selectedQuizData = [];
 let timer;
-let timeLeft = 10;
+let timeLeft = 30;
 
 document.getElementById("start-test").addEventListener("click", startQuiz);
 resetButton.addEventListener("click", resetQuiz);
@@ -240,7 +240,7 @@ function startQuiz() {
   currentQuestion = 0;
   score = 0;
   userAnswers = [];
-  timeLeft = 10;
+  timeLeft = 30;
 
   difficultySelection.style.display = "none";
   testElement.style.display = "block";
@@ -323,7 +323,7 @@ function startTimer() {
 
 function resetTimer() {
   clearInterval(timer);
-  timeLeft = 10;
+  timeLeft = 30;
   document.getElementById("time-left").innerText = timeLeft; // Ensure timerElement is updated here
 }
 
@@ -331,7 +331,7 @@ function resetQuiz() {
   difficultySelection.style.display = "block";
   testElement.style.display = "none";
   resetButton.style.display = "none";
-  testElement.innerHTML = `<div id="timer">Time Left: <span id="time-left">10</span>s</div> <div class="question-container" id="question-container"> <div class="question" id="question-1"> <div class="question-text" id="question"></div> <div class="code" id="code"></div> <div class="options" id="options"></div> </div> </div>`;
+  testElement.innerHTML = `<div id="timer">Time Left: <span id="time-left">30</span>s</div> <div class="question-container" id="question-container"> <div class="question" id="question-1"> <div class="question-text" id="question"></div> <div class="code" id="code"></div> <div class="options" id="options"></div> </div> </div>`;
 
   // Reinitialize elements
   questionElement = document.getElementById("question");
