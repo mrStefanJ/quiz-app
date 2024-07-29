@@ -27,5 +27,5 @@ This is a JavaScript-based quiz application that allows users to select a diffic
 Clone the repository to your local machine:
 
 ```sh
-git clone https://github.com/your-username/quiz-app.git
+git clone https://github.com/mrStefanJ/quiz-app.git
 ```
