@@ -4,24 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>JavaScript Test</title>
+    <title>Quiz</title>
   </head>
   <body>
-    <div id="difficulty-selection">
-      <h1 class="title">Welcome to JavaScript Test</h1>
-      <label for="difficulty-label">Select Difficulty:</label>
-      <select id="level">
-        <option value="junior">Junior</option>
-        <option value="medium">Medium</option>
-        <option value="senior">Senior</option>
-      </select>
+    <div id="selection-container">
+      <h1 class="title">Welcome to the Quiz</h1>
+
+      <div id="category-selection">
+        <label for="category-label">Select Category:</label>
+        <div class="select-wrapper">
+        <select id="category">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript">JavaScript</option>
+        </select>
+      </div>
+      </div>
+
+      <div id="difficulty-selection">
+        <label for="difficulty-label">Select Level:</label>
+        <div class="select-wrapper">
+        <select id="level">
+          <option value="junior">Junior</option>
+          <option value="medium">Medium</option>
+          <option value="senior">Senior</option>
+        </select>
+      </div>
+      </div>
+
       <div class="btn-start">
+        <p class="comment">INFO: You will have 10 questions for each Level</p>
         <button id="start-test">Start Test</button>
       </div>
-      <div class="comment">You will have 10 questions for each Level</div>
     </div>
+
     <div id="test" style="display: none">
-      <div id="timer">Time Left: <span id="time-left">30</span>s</div>
+      <div id="timer">Time Left: <span id="time-left">60</span>s</div>
       <div class="question-container" id="question-container">
         <div class="question" id="question-1">
           <div class="question-text" id="question"></div>

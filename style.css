@@ -2,8 +2,42 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#difficulty-selection {
+ul {
+  list-style-type: none;
+}
+
+.title {
   text-align: center;
+}
+
+#category-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#category-selection label {
+  padding-right: 80px;
+}
+
+#difficulty-selection {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#difficulty-selection label {
+  padding-right: 110px;
+}
+
+.btn-start {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.comment{
+  margin-bottom: 0;
 }
 
 #test {
@@ -85,12 +119,79 @@ body {
   transition: background-color 0.3s;
 }
 
-.options button:hover {
-  background-color: #0056b3;
+.select-wrapper {
+  position: relative;
+  width: 200px;
 }
 
-ul {
-  list-style-type: none;
+#level {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#category {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  pointer-events: none;
+}
+
+#level option {
+  background-color: #fff;
+  padding: 10px;
+}
+
+#level:hover {
+  background-color: #f0f0f0;
+}
+
+#level:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+#category option {
+  background-color: #fff;
+  padding: 10px;
+}
+
+#category:hover {
+  background-color: #f0f0f0;
+}
+
+#category:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.options button:hover {
+  background-color: #0056b3;
 }
 
 .correct {
@@ -122,9 +223,6 @@ ul {
   -webkit-box-shadow: inset 0 0 6px rgb(135 45 45 / 30%);
 }
 
-.comment {
-  margin-top: 10px;
-}
 
 .selected-level {
   text-transform: uppercase;
