@@ -2,7 +2,7 @@ const quizData = {
   html: {
     junior: [
       {
-        question: "<p>What does HTML stand for</p>",
+        question: "What does HTML stand for",
         code: "",
         options: [
           "Home Tool Markup Language",
@@ -13,14 +13,14 @@ const quizData = {
       },
       {
         question:
-          "<p>Choose the correct HTML element for the largest heading:</p>",
+          "Choose the correct HTML element for the largest heading:",
         code: "",
         options: ["<heading>", "<h1>", "<head>", "<h6>"],
         answer: "<h1>",
       },
       {
         question:
-          "<p>What is the correct HTML for adding a background color?</p>",
+          "What is the correct HTML for adding a background color?",
         code: "",
         options: [
           '<body style="background-color:yellow">',
@@ -30,7 +30,7 @@ const quizData = {
         answer: "",
       },
       {
-        question: "<p>What is the correct HTML for creating a hyperlink?</p>",
+        question: "What is the correct HTML for creating a hyperlink?",
         code: "",
         options: [
           "<a>http://www.demo.com</a>",
@@ -42,18 +42,18 @@ const quizData = {
       },
       {
         question:
-          "<p>Which element is used for both text and password form fields?</p>",
+          "Which element is used for both text and password form fields?",
         code: "",
         options: ["textarea", "form", "input", "select"],
         answer: "input",
       },
       {
-        question: "<p>Which of the following is a valid color code?</p>",
+        question: "Which of the following is a valid color code?",
         options: ["$505050", "#505050", "505050", "-505050"],
         answer: "#505050",
       },
       {
-        question: "<p>What is the proper syntax of a form submit button?</p>",
+        question: "What is the proper syntax of a form submit button?",
         code: "",
         options: [
           '<input="submit" />',
@@ -65,7 +65,7 @@ const quizData = {
       },
       {
         question:
-          "<p>What is correct way to add an image file in the paragraph?</p>",
+          "What is correct way to add an image file in the paragraph?",
         code: "",
         options: [
           '<p><img height="100%" width="100%" src="Sample.gif" /></p>',
@@ -76,7 +76,7 @@ const quizData = {
         answer: '<a><img height="100%" width="100%" src="Sample.gif" /></a>',
       },
       {
-        question: "<p>HTML is the language used to create what?</p>",
+        question: "HTML is the language used to create what?",
         code: "",
         options: [
           "High level",
@@ -88,7 +88,7 @@ const quizData = {
       },
       {
         question:
-          "<p>Which of the following examples shows correctly nested HTML elements?</p>",
+          "Which of the following examples shows correctly nested HTML elements?",
         code: "",
         options: [
           "<html></html><head></head><body></body>",
@@ -336,7 +336,7 @@ const quizData = {
   css: {
     junior: [
       {
-        question: "<p>What does CSS stand for?<p>",
+        question: "What does CSS stand for?",
         code: "",
         options: [
           "Colorful Style Sheets",
@@ -348,7 +348,7 @@ const quizData = {
       },
       {
         question:
-          "<p>How the order of specificity rule which has precedence respectively in CSS?</p>",
+          "How the order of specificity rule which has precedence respectively in CSS?",
         code: "",
         options: [
           "Inline style, Classes, Id selector",
@@ -359,20 +359,20 @@ const quizData = {
         answer: "Inline style, Id selector, Classes",
       },
       {
-        question: "<p>How many position do we have in CSS?</p>",
+        question: "How many position do we have in CSS?",
         code: "",
         options: ["4", "5", "6", "7"],
         answer: "6",
       },
       {
         question:
-          "<p>Which HTML tag is used to define an internal style sheet?</p>",
+          "Which HTML tag is used to define an internal style sheet?",
         code: "",
         options: ["<script>", "<style>", "<css>"],
         answer: "<style>",
       },
       {
-        question: "<p>Which is the correct CSS syntax?</p>",
+        question: "Which is the correct CSS syntax?",
         code: "",
         options: [
           "div:color=red;",
@@ -384,7 +384,7 @@ const quizData = {
       },
       {
         question:
-          "<p>How do you add a background color for all <h1> elements?</p>",
+          "How do you add a background color for all <h1> elements?",
         code: "",
         options: [
           "h1.all {background-color: #ffffff}",
@@ -396,7 +396,7 @@ const quizData = {
       },
       {
         question:
-          "<p>What is the correct CSS syntax for making all the <p> elements bold?</p>",
+          "What is the correct CSS syntax for making all the <p> elements bold?",
         code: "",
         options: [
           "p{font-weight: bold;}",
@@ -407,7 +407,7 @@ const quizData = {
         answer: "p{font-weight: bold;}",
       },
       {
-        question: "<p>How do you display hyperlinks without an underline?</p>",
+        question: "How do you display hyperlinks without an underline?",
         code: "",
         options: [
           "a{decoration:no-underline}",
@@ -419,7 +419,7 @@ const quizData = {
       },
       {
         question:
-          "<p>How do you make each word in a text start with a capital letter?</p>",
+          "How do you make each word in a text start with a capital letter?",
         code: "",
         options: [
           "You can't do taht with CSS",
@@ -430,7 +430,7 @@ const quizData = {
         answer: "text-transform: capitalize",
       },
       {
-        question: "<p>How do you display a border like this:</p>",
+        question: "How do you display a border like this:",
         code: "<p>The top border = 10 pixels</p><p>The bottom border = 5 pixels</p><p>The left border = 20 pixels</p><p>The right border = 1pixel?</p>",
         options: [
           "border-width:10px 1px 5px 20px;",
