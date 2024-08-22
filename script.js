@@ -2,7 +2,7 @@ const quizData = {
   html: {
     junior: [
       {
-        question: "What does HTML stand for",
+        question: "What does HTML stand for?",
         code: "",
         options: [
           "Home Tool Markup Language",
@@ -13,7 +13,7 @@ const quizData = {
       },
       {
         question:
-          "Choose the correct HTML element for the largest heading:",
+          "Choose the correct HTML element for the largest heading?",
         code: "",
         options: ["<heading>", "<h1>", "<head>", "<h6>"],
         answer: "<h1>",
@@ -49,6 +49,7 @@ const quizData = {
       },
       {
         question: "Which of the following is a valid color code?",
+        code: "",
         options: ["$505050", "#505050", "505050", "-505050"],
         answer: "#505050",
       },
@@ -430,7 +431,7 @@ const quizData = {
         answer: "text-transform: capitalize",
       },
       {
-        question: "How do you display a border like this:",
+        question: "How do you display a border like this?",
         code: "<p>The top border = 10 pixels</p><p>The bottom border = 5 pixels</p><p>The left border = 20 pixels</p><p>The right border = 1pixel?</p>",
         options: [
           "border-width:10px 1px 5px 20px;",
@@ -935,8 +936,9 @@ function showQuestion() {
   optionsElement = document.getElementById("options");
   codeElement = document.getElementById("code");
 
-  questionElement.innerHTML = question.question;
-  codeElement.innerHTML = question.code;
+  questionElement.textContent = question.question;
+  codeElement.textContent = question.code;
+
   optionsElement.innerHTML = "";
   question.options.forEach((option) => {
     const button = document.createElement("button");
@@ -944,7 +946,7 @@ function showQuestion() {
     optionsElement.appendChild(button);
     button.addEventListener("click", selectAnswer);
   });
-  startTimer(); // Start the timer for each new question
+  startTimer();
 }
 
 function selectAnswer(e) {
@@ -1010,13 +1012,11 @@ function showResult() {
   document.getElementById("reset").addEventListener("click", resetQuiz);
 }
 
-
-
 function startTimer() {
   clearInterval(timer);
   timer = setInterval(() => {
     timeLeft--;
-    document.getElementById("time-left").innerText = timeLeft; // Ensure timerElement is updated here
+    document.getElementById("time-left").innerText = timeLeft;
     if (timeLeft <= 0) {
       clearInterval(timer);
       selectAnswer({ target: { innerText: "No Answer" } });
@@ -1027,21 +1027,21 @@ function startTimer() {
 function resetTimer() {
   clearInterval(timer);
   timeLeft = 60;
-  document.getElementById("time-left").innerText = timeLeft; // Ensure timerElement is updated here
+  document.getElementById("time-left").innerText = timeLeft;
 }
 
 function resetQuiz() {
   selectionContainer.style.display = "block";
   testElement.style.display = "none";
   resetButton.style.display = "none";
-  testElement.innerHTML = `<div id="timer">Time Left: <span id="time-left">60</span>s</div> <div class="question-container" id="question-container"> <div class="question" id="question-1"> <div class="question-text" id="question"></div> <div class="code" id="code"></div> <div class="options" id="options"></div> </div> </div>`;
+  
+  testElement.innerHTML = '<div id="timer">Time Left: <span id="time-left">60</span>s</div> <div class="question-container" id="question-container"> <div class="question" id="question-1"> <div class="question-text" id="question"></div> <div class="code" id="code"></div> <div class="options" id="options"></div></div></div>';
 
-  // Reinitialize elements
   questionElement = document.getElementById("question");
   optionsElement = document.getElementById("options");
   codeElement = document.getElementById("code");
 
-  // Reinitialize event listeners
   document.getElementById("start-test").addEventListener("click", startQuiz);
   document.getElementById("reset").addEventListener("click", resetQuiz);
 }
+
